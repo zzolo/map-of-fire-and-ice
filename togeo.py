@@ -26,7 +26,7 @@ else:
     h = dim * aspect_ratio
     w = dim
 
-res = call(['gdal_translate', '-a_ullr', str(-w/2), str(-h/2), str(w/2), str(h/2), '-a_srs', MERC, '-co', 'COMPRESS=NONE', '-co', 'JPEG_QUALITY=100', infile, '%s.tif' % infile])
+res = call(['gdal_translate', '-a_ullr', str(-w/2), str(-h/2), str(w/2), str(h/2), '-a_srs', MERC, '-co', 'COMPRESS=NONE', '-co', 'JPEG_QUALITY=100', '-co', 'ZLEVEL=9', infile, '%s.tif' % infile])
 
 if res != 0:
     raise 'An error occurred upon calling gdal_translate'
